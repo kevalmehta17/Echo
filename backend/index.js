@@ -10,6 +10,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { register } from "./controllers/auth.js";
 import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/user.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -46,9 +47,9 @@ const upload = multer({ storage: storage });
 
 //ROUTES
 app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
 
 //ROUTES WITH FILES
-
 app.post("/auth/register", upload.single("picture"), register);
 
 const PORT = process.env.PORT || 6001;

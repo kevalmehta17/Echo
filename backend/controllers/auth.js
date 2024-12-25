@@ -18,6 +18,7 @@ export const register = async (req, res) => {
       viewedProfile,
       impressions,
     } = req.body;
+
     //hashing the password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
