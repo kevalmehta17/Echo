@@ -34,6 +34,10 @@ const userSchema = mongoose.Schema(
       type: Array,
       default: [],
     },
+    lastLogin: {
+      type: Date,
+      default: Date.now,
+    },
     location: String,
     occupation: String,
     viewedProfile: Number,
