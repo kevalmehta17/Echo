@@ -14,7 +14,7 @@ const userSchema = mongoose.Schema(
       min: 2,
       max: 50,
     },
-    emial: {
+    email: {
       type: String,
       required: true,
       unique: true,
@@ -26,7 +26,7 @@ const userSchema = mongoose.Schema(
       min: 6,
       unique: true,
     },
-    picture: {
+    picturePath: {
       type: String,
       default: "",
     },
@@ -42,6 +42,6 @@ const userSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const USer = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 export default User;

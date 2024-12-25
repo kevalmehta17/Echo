@@ -47,13 +47,14 @@ app.post("/auth/register", upload.single("picture"), register);
 
 const PORT = process.env.PORT || 6001;
 // MONGOOSE SETUP
+console.log(process.env.MONGO_URL);
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
+    console.log("Connected to MongoDB");
     app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
+      console.log(`Server is running on port: ${PORT}`);
     });
   })
   .catch((error) => console.log(error));
-
 // mongodb+srv://ironman:ironman123@cluster0.clkcr.mongodb.net/
