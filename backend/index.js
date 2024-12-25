@@ -14,7 +14,9 @@ import authRoutes from "./routes/auth.route.js";
 import userRoutes from "./routes/users.route.js";
 import postRoutes from "./routes/posts.route.js";
 import { vertifyToken } from "./middleware/auth.js";
-
+import User from "./models/user.model.js";
+import Post from "./models/posts.model.js";
+import { users, posts } from "./data/index.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -66,6 +68,10 @@ mongoose
     console.log("Connected to MongoDB");
     app.listen(PORT, () => {
       console.log(`Server is running on port: ${PORT}`);
+
+      //Add dummy data only for the oneTime
+      // User.insertMany(users);
+      // Post.insertMany(posts);
     });
   })
   .catch((error) => console.log(error));

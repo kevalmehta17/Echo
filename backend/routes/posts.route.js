@@ -2,10 +2,11 @@ import express from "express";
 import {
   getFeedPosts,
   getUserPosts,
-  likedPost,
+  likePost,
 } from "../controllers/posts.controller.js";
 import { vertifyToken } from "../middleware/auth.js";
-import { get } from "array";
+
+const router = express.Router();
 
 //READ
 router.get("/", vertifyToken, getFeedPosts); //this give all the posts from database
